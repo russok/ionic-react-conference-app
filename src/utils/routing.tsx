@@ -32,14 +32,7 @@ class RTRoute extends Component<Props> {
   render() {
     const needTutorial = !this.props.user.hasSeenTutorial;
     
-    return (
-      <>
-        { needTutorial ? <Tutorial /> : null }
-        <div style={needTutorial ? {display: "none"} : {height: "100%"}}>
-          <Route {...this.props}/>
-        </div>
-      </>
-    );
+    return needTutorial ? <Tutorial /> : <Route {...this.props}/>;
   }
 }
 
